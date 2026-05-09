@@ -2,9 +2,13 @@ services:
   jupyter:
     build:
       context: .
-      dockerfile: .devcontainer/Dockerfile
+      dockerfile: Dockerfile
     ports:
       - "8888:8888"
     volumes:
       - ./:/app
+      - pip-cache:/root/.cache/pip
     working_dir: /app/course
+
+volumes:
+  pip-cache:
